@@ -7,10 +7,10 @@ import seaborn as sns
 import plotly.express as px
 
 # Load the scaler and model
-with open(r"scaler.pkl", 'rb') as file:
+with open(r"Model/scaler.pkl", 'rb') as file:
     loaded_scaler = pickle.load(file)
 
-with open(r"energy_predict.pkl", 'rb') as file:
+with open(r"Model/energy_predict.pkl", 'rb') as file:
     loaded_model = pickle.load(file)
 
 # Sample user credentials
@@ -103,7 +103,7 @@ else:
         st.markdown("## 🔍 Energy Consumption Insights & Analysis")
 
         # Mock data for analysis (replace with real data if available)
-        data = pd.read_csv("Malmi_office_building_hourly.csv")
+        data = pd.read_csv("Dataset/Malmi_office_building_hourly.csv")
         data['Date'] = pd.to_datetime(data['Date'], format='%d/%m/%Y %H:%M')
         data.set_index('Date',inplace=True)
 
@@ -177,13 +177,13 @@ else:
         """)
 
         # Load and display the dataset from a CSV file
-        data = pd.read_csv(r"Malmi_office_building_hourly.csv")
+        data = pd.read_csv(r"Dataset/Malmi_office_building_hourly.csv")
         st.markdown("### 📊 Dataset")
         st.dataframe(data)
 
 
     elif menu == "📊 Key Performance Indicators":
-        data = pd.read_csv(r"Final_dataset.csv")
+        data = pd.read_csv(r"Dataset/Final_dataset.csv")
 
         st.markdown("### 📊 Key Performance Indicators")
         col1, col2, col3 = st.columns(3)
