@@ -5,3 +5,4 @@ plotly
 seaborn
 streamlit
 xgboost
+Scikit-learn 
